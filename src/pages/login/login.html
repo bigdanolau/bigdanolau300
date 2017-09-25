@@ -1,0 +1,76 @@
+<ion-content padding>
+<style type="text/css">
+  .fullscreen-bg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -100;
+}
+.login-form {
+    width: 350px;
+    padding: 40px 30px;
+    background-color: rgba(0,0,0,0.5);
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    margin: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.fullscreen-bg__video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+@media (min-aspect-ratio: 16/9) {
+  .fullscreen-bg__video {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-aspect-ratio: 16/9) {
+  .fullscreen-bg__video {
+    width: auto;
+    height: 100%;
+  }
+}
+</style>
+<div class="fullscreen-bg">
+    <video  preload="auto" webkit-playsinline loop muted autoplay class="fullscreen-bg__video">
+
+        <source src="assets/videos/login.mp4" type="video/mp4">
+
+    </video>
+</div>
+  <div class="login-form">
+
+     <h1 style="color: white;" ion-text text-center>Iniciar Sesión</h1><br>
+<form name="login" #login="ngForm" (ngSubmit)="loguear()" novalidate>
+        <ion-item style="background-color: transparent!important;color:white!important;">
+          <ion-label>Email</ion-label>
+          <ion-input [(ngModel)]="email" name="email" type="email" required></ion-input>
+        </ion-item>
+        <ion-item style="background-color: transparent!important;color:white!important;">
+          <ion-label>Contraseña</ion-label>
+          <ion-input [(ngModel)]="pass" name="pass" type="password" required minlength="4"></ion-input>
+        </ion-item><br>
+        <button ion-button type="submit" medium block [disabled]="login.invalid">Iniciar Sesión</button>
+          </form>
+        <button ion-button [navPush]="registrar" medium block color="danger">Registrarse</button>
+        <button ion-button color="dark" outline full style="color:white;" (click)="recuperar()">Olvidé mi contraseña :(</button>
+
+      <br>
+   </div>
+</ion-content>

@@ -1,0 +1,104 @@
+<!--
+  Generated template for the RegistrarPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="oscuro">
+    <ion-title>Registro</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<style type="text/css">
+  .fullscreen-bg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -100;
+}
+.login-form {
+    width: 350px;
+    padding: 40px 30px;
+    background-color: rgba(0,0,0,0.5);
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    margin: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.fullscreen-bg__video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+@media (min-aspect-ratio: 16/9) {
+  .fullscreen-bg__video {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-aspect-ratio: 16/9) {
+  .fullscreen-bg__video {
+    width: auto;
+    height: 100%;
+  }
+}
+</style>
+<div class="fullscreen-bg">
+    <video  preload="auto" webkit-playsinline loop muted autoplay poster="https://xn--danieldiseo-beb.com/lufy/res/img/videoframe.jpg" class="fullscreen-bg__video">
+
+        <source src="assets/videos/login.mp4" type="video/mp4">
+
+    </video>
+</div>
+  <div class="login-form">
+    <form name="login" #registro="ngForm" (ngSubmit)="registrar()" novalidate>
+            <ion-item style="background-color: transparent!important;color:white!important;">
+              <ion-label>Nombre</ion-label>
+              <ion-input [(ngModel)]="user.nombre" name="nombre" type="text" required></ion-input>
+            </ion-item>
+            <ion-item style="background-color: transparent!important;color:white!important;">
+              <ion-label>Edad</ion-label>
+              <ion-input [(ngModel)]="user.edad" name="edad" type="number" required></ion-input>
+            </ion-item>
+            <ion-item style="background-color: transparent!important;color:white!important;">
+              <ion-label>Teléfono</ion-label>
+              <ion-input [(ngModel)]="user.celular" name="telefono" type="tel" required></ion-input>
+            </ion-item>
+
+            <ion-item style="background-color: transparent!important;color:white!important;">
+              <ion-label>Email</ion-label>
+              <ion-input [(ngModel)]="user.email" name="email" type="email" required></ion-input>
+            </ion-item>
+            <ion-item  style="background-color: transparent!important;color:white!important;">
+                <ion-label>Ciudad actual</ion-label>
+                <ion-select [(ngModel)]="user.ciudad" name="ciudad" required>
+                    <ion-option *ngFor="let ciudad of ciudades" value="{{ciudad.id}}">{{ciudad.nombre}}</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item style="background-color: transparent!important;color:white!important;">
+              <ion-label>Contraseña</ion-label>
+              <ion-input [(ngModel)]="user.password" name="password" type="password" required minlength="4"></ion-input>
+            </ion-item><br>
+            <button ion-button type="submit" medium block [disabled]="registro.invalid" color="secondary">¡Registrarse!</button>
+              </form>
+  </div>
+</ion-content>

@@ -1,0 +1,34 @@
+<ion-footer>
+
+  <ion-navbar color="oscuro">
+    <ion-title>{{promo.titulo}}</ion-title>
+
+  </ion-navbar>
+
+</ion-footer>
+
+
+<ion-content >
+<img [src]="path+'/assets/img/promos/'+promo.imagen" alt="">
+<br>
+<h2 ion-text text-center>{{promo.titulo}}</h2><br>
+<p ion-text text-justify>
+  {{promo.descripcion}}
+</p>
+<br>
+<ion-row>
+  <ion-col>
+    <div text-center>
+    <h4>Desde:</h4> <span>{{inicio}}</span>
+  </div>
+  </ion-col>
+  <ion-col >
+    <div text-center>
+    <h4>Hasta:</h4> <span>{{fin}}</span>
+  </div>
+  </ion-col>
+</ion-row>
+<br>
+<button ion-button color="danger" large full>Denunciar</button>
+
+</ion-content>

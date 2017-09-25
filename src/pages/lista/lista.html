@@ -1,0 +1,22 @@
+<ion-content >
+  
+  <div *ngFor="let promo of promo.t_promociones">
+  <ion-card >
+
+    <img src="{{path}}/assets/img/promos/{{promo.imagen}}"/>
+    <ion-card-content>
+      <ion-card-title>
+        {{promo.titulo}}
+        </ion-card-title>
+      <p>
+        The most popular industrial group ever, and largely
+        responsible for bringing the music to a mass audience.
+      </p>
+    </ion-card-content>
+  </ion-card>
+</div>
+  <ion-infinite-scroll *ngIf="!promo.final" (ionInfinite)="cargar($event)">
+   <ion-infinite-scroll-content></ion-infinite-scroll-content>
+ </ion-infinite-scroll>
+ <h3 ion-text text-center *ngIf="promo.final">No existen más resultados</h3>
+</ion-content>

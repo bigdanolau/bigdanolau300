@@ -1,0 +1,8 @@
+{
+  "name": "lufy",
+  "app_id": "e5e4e040",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

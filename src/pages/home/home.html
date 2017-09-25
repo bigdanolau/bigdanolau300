@@ -1,0 +1,44 @@
+
+<ion-content>
+
+<ion-searchbar [showCancelButton]="shouldShowCancel" (ionInput)="getItems($event)" placeholder="Buscar Categoría">
+
+</ion-searchbar>
+<div id="busqueda" *ngIf="buscando">
+  <ion-list no-lines>
+<ion-item no-lines  *ngFor="let item of items; let i = index" (click)="get_filter(item)">
+      {{ item}}
+</ion-item>
+</ion-list>
+</div>
+  <agm-map [latitude]="lat" [longitude]="lng" [streetViewControl]="false" [zoom]="zoom" >
+
+      <agm-marker  [latitude]="lat" [longitude]="lng">
+      </agm-marker>
+    <agm-marker *ngFor="let promo of this.promo.promociones" [latitude]="ConvertString(promo.latitud)"
+    iconUrl="assets/img/marker.png" [longitude]="ConvertString(promo.longitud)">
+
+       <agm-snazzy-info-window [maxWidth]="200" [closeWhenOthersOpen]="true">
+      <ng-template>
+        <h6>{{promo.titulo}}</h6>
+        <button ion-button  [navPush]="promopage" [navParams]="promo">Ver Promo</button>
+      </ng-template>
+    </agm-snazzy-info-window>
+    </agm-marker>
+
+  </agm-map>
+
+ </ion-content>
+ <ion-footer *ngIf="this.filtro">
+   <ion-toolbar color="oscuro">
+     <ion-segment [(ngModel)]="filtro_activo">
+       <ion-segment-button value="{{filtro_activo}}">
+         {{filtro_activo}}
+       </ion-segment-button>
+       <ion-segment-button value="todo" (click)="get_filter(nombre='')">
+         Ver todo
+       </ion-segment-button>
+     </ion-segment>
+
+   </ion-toolbar>
+ </ion-footer>
