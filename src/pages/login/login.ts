@@ -5,6 +5,7 @@ import {UserProvider} from "../../providers/user/user";
 import { AlertController } from 'ionic-angular';
 import { Http } from '@angular/http';
 import { Storage } from '@ionic/storage';
+
 //pages
 import {TabsPage,RegistrarPage} from "./../pages";
 //providers
@@ -26,7 +27,7 @@ loguear(){
       let alert = this.alertCtrl.create({
          title: 'Datos incorrectos',
          subTitle: 'Si no tienes una cuenta, puedes registrarte ¡GRATIS!',
-         buttons: ['Ok']
+         buttons: ['Aceptar']
        });
        alert.present();
     }
