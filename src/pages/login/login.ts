@@ -27,7 +27,7 @@ loguear(){
       let alert = this.alertCtrl.create({
          title: 'Datos incorrectos',
          subTitle: 'Si no tienes una cuenta, puedes registrarte ¡GRATIS!',
-         buttons: ['Aceptar']
+         buttons: ['Ok']
        });
        alert.present();
     }
